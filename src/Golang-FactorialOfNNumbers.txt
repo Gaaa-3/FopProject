@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+func main() {
+
+    var n int = 6
+
+    var answer int = 1
+
+    for i :=1; i <= n; i++ {
+
+      answer = answer * i
+
+    }
+
+fmt.Printf("The factorial of %d is %d\n", n, answer)
+
+}
