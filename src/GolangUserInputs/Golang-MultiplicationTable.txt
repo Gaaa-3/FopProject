@@ -1,0 +1,18 @@
+package main
+
+import "fmt"
+
+func main() {
+
+    number := 5
+
+
+    i := 1
+    for true {
+       if i == 11 {
+          break
+       }
+       fmt.Println(number * i)
+       i++
+    }
+}

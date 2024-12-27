@@ -1,0 +1,27 @@
+package main
+
+import "fmt"
+
+func main() {
+
+    N := 15
+
+    prev1 := 0
+    prev2 := 1
+
+    current := prev1
+
+    i := 1
+    for true {
+       if i == N {
+          break
+       }
+       current = prev1 + prev2
+       prev1 = prev2
+       prev2 = current
+       i++
+    }
+
+    fmt.Print(current)
+
+}

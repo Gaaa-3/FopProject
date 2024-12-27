@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+
+    number := 2468
+    sum := 0
+    temp := number
+
+    for true {
+       if temp == 0 {
+          break
+       }
+       sum1 := temp % 10
+       sum = sum + sum1
+       temp = temp / 10
+    }
+
+    fmt.Print("The sum of the digits of %d is: %d\n", number, sum)
+    }
