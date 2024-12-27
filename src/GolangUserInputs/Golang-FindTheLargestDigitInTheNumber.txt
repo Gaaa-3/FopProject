@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func main() {
+	Number:= 13795
+	temp:=0
+	Rem:=10
+	for true{
+
+		Decimal:=Number%Rem
+
+		if (temp<Decimal){
+			temp=Decimal
+		}
+		Number=Number/10
+		if (Decimal==0){
+			fmt.Print(temp)
+
+			break
+		}
+
+	}
+
+}
