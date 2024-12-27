@@ -1,0 +1,15 @@
+package main
+
+import "fmt"
+
+func main() {
+    num := 168
+    res := 0
+
+    for num > 0 {
+       res = (res * 10) + num % 10
+       num = num / 10
+    }
+
+    fmt.Print(res)
+}
