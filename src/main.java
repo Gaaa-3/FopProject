@@ -1,5 +1,3 @@
-import jdk.dynalink.beans.StaticClass;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -11,11 +9,11 @@ class main {
         }
         return false;
     }
-    public static int SearchByName(Variables[] a, String name ){
+    public static String SearchByName(Variables[] a, String name ){
         for (int i = 0; i <a.length  && a[i] != null; i++) {
-            if (a[i].GetName().equals(name )) return a[i].GetData();
+            if (a[i].GetName().equals(name )) return a[i].GetData()+"";
         }
-        return 0 ;
+        return "false" ;
     }
 
     public static void GetAllValues(Variables[] a) {
@@ -134,13 +132,14 @@ class main {
 
 
                 // gagas gatolebis da informaciis shecvlis
-
-                for (int i = 1; i < SimpleLine.length(); i++) {
-                    String CheckName =" ";//  anu es imistvisaa rom gaigos aris tuara es saxeli sheqmnili
+//                for (int i=0; i < SimpleLine.length(); i++) {
+//                    if ((""+JustLine.charAt(i)).equals("=")){
+//                    String CheckName =" ";//  anu es imistvisaa rom gaigos aris tuara es saxeli sheqmnili
 //                    if (CheckIfExists(Variables,CheckName)){
-//            }
-
-                }
+//
+//                    }
+//                }
+//                }
 
 
 // ------------------------------------------------------------------------------------------------------------------
