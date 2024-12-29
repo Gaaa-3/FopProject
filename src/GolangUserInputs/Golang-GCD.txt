@@ -3,16 +3,17 @@ package main
 import "fmt"
 
 func main() {
+	n1 := 24
+	n2 := 12
 
-    n1 := 1
-    n2 := 18
+	for true {
+		if n2 == 0 {
+			break
+		}
+		temp := n1 % n2
+		n1 = n2
+		n2 = temp
+	}
 
-    for n2 != 0 {
-       temp := n1 % n2
-       n1 = n2
-       n2 = temp
-
-    }
-
-    fmt.Printf("GCD is %d\n", n1)
+	fmt.Print(n1)
 }

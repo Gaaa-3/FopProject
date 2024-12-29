@@ -3,13 +3,21 @@ package main
 import "fmt"
 
 func main() {
-    num := 168
-    res := 0
+	num := 12345
+	res := 0
+	res1:= 0
+	res2:= 0
+	for true {
 
-    for num > 0 {
-       res = (res * 10) + num % 10
-       num = num / 10
-    }
+		res1 = res * 10
+		res2 = num % 10
+		res = res1 + res2
 
-    fmt.Print(res)
+		num = num / 10
+		if num == 0 {
+			break
+		}
+	}
+
+	fmt.Print(res)
 }
