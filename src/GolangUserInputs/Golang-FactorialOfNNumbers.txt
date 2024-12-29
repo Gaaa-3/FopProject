@@ -4,16 +4,22 @@ import "fmt"
 
 func main() {
 
-    var n int = 6
+	var n int = 6
 
-    var answer int = 1
+	var answer int = 1
 
-    for i :=1; i <= n; i++ {
+	i :=1
 
-      answer = answer * i
+	for true {
+		answer = answer * i
 
-    }
+		if ( i == n ) {
 
-fmt.Printf("The factorial of %d is %d\n", n, answer)
+			break
+		}
 
+		i++
+	}
+
+	fmt.Print(answer)
 }

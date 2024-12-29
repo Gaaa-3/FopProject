@@ -3,22 +3,29 @@ package main
 import "fmt"
 
 func main() {
+	num := 12321
+	num1 := num
+	res := 0
+	res1 := 0
+	res2 := 0
+	for true {
 
-	var originalNumber int = 121
-	var reverseNumber int = 0
-	var temp = originalNumber
+		res1 = res * 10
+		res2 = num1 % 10
+		res = res1 + res2
 
-	for temp > 0 {
-		var remainder = temp % 10
-		reverseNumber1 := reverseNumber * 10
-		reversenumber2 := reverseNumber1 + remainder
-		reverseNumber = reversenumber2
-		temp = temp / 10
+		num1 = num1 / 10
+		if (num1 == 0) {
+			break
+		}
 	}
 
-	if originalNumber == reverseNumber {
-		fmt.Print("1")
-	} else {
-		fmt.Print("-1")
+	fmt.Print(res)
+
+	if (res == num) {
+		fmt.Print(" Is Palindrome")
+	}
+	if ( res != num) {
+		fmt.Print(" Not Palindrome")
 	}
 }

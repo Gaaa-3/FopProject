@@ -1,25 +1,32 @@
 package main
+
 import "fmt"
 
 func main() {
+	x := 0
+	count := 0
+	i := 1
 
-	x:=3
-	i:=1
-	count:=0
-	for true{
-
-		if (x%i==0){
+	for true {
+		if x == 1 {
+			fmt.Print("Neither prime or composite")
+			break
+		}
+		if x == 0 {
+			fmt.Print("Neither prime or composite")
+			break
+		}
+		if x%i == 0 {
 			count++
 		}
-		if ( i==9 && count ==2){
+		if i == 9 && count == 2 {
 			fmt.Print("prime ")
 			break
 		}
-		if ( i==9 && count !=2){
+		if i == 9 {
 			fmt.Print("not prime ")
 			break
 		}
-        i++
+		i++
 	}
-
 }
