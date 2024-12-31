@@ -51,7 +51,9 @@ For example, here you can change the meaning of n;
 
 
 
-After pasting the code hit enter and you are all done;
+**After pasting the code hit enter and you are all done;**
 
 **The same works for all given GolangUserInput codes**
+
+
 
