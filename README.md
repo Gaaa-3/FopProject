@@ -19,6 +19,8 @@ Managed the main class with others and took care about logic created Variables c
 Ensured the project, worked on main class with others, took care about ForConditions tested code corectness and the quality.
 
 ### Instruction for Using an Implementer
+=================================================================================================================================
+
 
 Clone the Repository to get access to all files, packages and classes;
 =================================================================================================================================
