@@ -38,8 +38,10 @@ Clone the Repository to get access to all files, packages and classes;
 
 1)Check for Golang codes that are already created for User to input in IDE console
 --------------------------------------------------------------------------------
-  Navigate to >FopProject>src>GolangUserInputs
-Here you have access to every code that works perfectly for the given algorithm. You can change the main variable if want to;
+  Navigate to >FopProject>src>GolangUserInputs;
+
+Here you have access to every code that works perfectly for the given algorithm.
+You can change the main variable if want to;
 For example, here you can change the meaning of n;
 
 ![carbon (1)](https://github.com/user-attachments/assets/821e3f20-9e16-4f9b-9572-28d9feb809b6)
