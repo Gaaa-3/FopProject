@@ -46,8 +46,12 @@ For example, here you can change the meaning of n;
  
 3)Paste copied GolangUserInputs code in console
 --------------------------------------------------------------------------------
-After pasting the code hit enter and you are all done;
 ![image](https://github.com/user-attachments/assets/fd3fd1d7-44d9-49f8-bdc8-f720a79f804b)
+
+
+
+
+After pasting the code hit enter and you are all done;
 
 **The same works for all given GolangUserInput codes**
 
