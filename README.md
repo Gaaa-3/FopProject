@@ -5,12 +5,16 @@ It allows users familiar with GoLang to execute GoLang-like commands and express
 The actual computations and processing of the input are handled by the Java backend, providing the best experience that connects GoLang syntax with Java's execution engine.
 
 ## Project Members and Roles
+
 🖥️**Beka Gorgiladze**: Project Leader
 Coordinated the project process and worked on main class with others, created basic and For Calculator.
+
 🧑‍💻**Nikoloz Tsikaridze**: Core Developer
 Worked mainly on the main class, created Print system and If system, wrote and optimized the GoLang code for functionality.
+
 🔧**Guram Tsiklauri**: Frontend Developer
 Managed the main class with others and took care about logic created Variables class.
+
 🏗️**Ani Liparteliani**: Quality Analyst
 Ensured the project, worked on main class with others, took care about ForConditions tested code corectness and the quality.
 
