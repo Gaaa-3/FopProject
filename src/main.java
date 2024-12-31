@@ -1,6 +1,13 @@
+import javax.swing.*;
+import java.awt.font.GlyphJustificationInfo;
 import java.util.*;
 
 class main {
+    public static Queue<String> Valuablebisqueue = new LinkedList<>();
+
+
+
+
     public static boolean CheckIfExists(Variables[] a, String name) {
         for (int i = 0; i < a.length && a[i] != null; i++) {
             if (a[i].GetName().equals(name)) return true;
@@ -22,15 +29,15 @@ class main {
         return name;
     }
 
-    public static void GetAllValues(Variables[] a) {
-        for (int i = 0; i < a.length && a[i] != null; ++i) {
-
-            System.out.print(i + 1 + "  " + a[i].GetName() + " -> ");
-
-            System.out.println(a[i].GetData());
-        }
-
-    }
+//    public static void GetAllValues(Variables[] a) {
+//        for (int i = 0; i < a.length && a[i] != null; ++i) {
+//
+//            System.out.print(i + 1 + "  " + a[i].GetName() + " -> ");
+//
+//            System.out.println(a[i].GetData());
+//        }
+//
+//    }
 
     public static boolean Check(Variables[] a, String name) {
         int o = 0;
@@ -42,7 +49,7 @@ class main {
         }
 
         if (o > 0) {
-            System.out.println("Shecdomaa");
+            System.out.println("ukve deklarirebulia");
             return false;
         } else {
             return true;
@@ -50,102 +57,246 @@ class main {
     }
 
 
-    //foris methodi
+    // dedanaqachi foris methodi
     public static void ForMethod(String[] LinesArray, int length, Variables[] Variables, int index) {
         String Shemotanili="";
         int xyz=0;
+        // vamowmebt tu sout-is inputi iwyeba sworad
+//            if (JustLine.length() > 2) {
+        int ku=0;
+        int IfExists=0;
+        boolean AnswerIF = false;
+        boolean IfBreak=false;
+        while (true) {
 
-        for (int i = 0; i < length; i++) {
-            System.out.println("mamamamdasmda");
-        }
-        for (int ku = 0; ku < length && LinesArray[ku] != null; ku++) {
-            System.out.println("shedis?");
+
+
+//            System.out.println("["+ku+"]"+ "--------"+ LinesArray[ku]);
             String JustLine = LinesArray[ku];
 
-            // vamowmebt tu sout-is inputi iwyeba sworad
-            if (JustLine.length() > 2) {
-                String Value1 = "";
-                String Value2 = "";
-                String Operation;
-                while (!(LinesArray[ku].equals("break"))) {
-                    if (!LinesArray[ku].equals("}")) System.out.println(LinesArray[ku]);
+            String Value1 = "";
+            String Value2 = "";
+            String Operation;
+
+            String Frchxilebshi = "";
 
 
+            if (JustLine.startsWith("if")) {
 
-                    for (int i = 1; i < JustLine.length(); i++) {
-                        String NameForUpdate = "";
-                        if (JustLine.charAt(i - 1) == '+' && JustLine.charAt(i) == '+') {
-                            for (int j = 0; j < i - 1; j++) {
-                                NameForUpdate = NameForUpdate + JustLine.charAt(j);
+                IfExists++;
+                String ValueIf1="";
+                String OperationIf="";
+                String ValueIf2="";
 
-
-                            }
-                            if (CheckIfExists(Variables, NameForUpdate)) {
-                                int hgk = Integer.parseInt(SearchByName(Variables, NameForUpdate));
-                                hgk++;
-                                Variables[Integer.parseInt(SearchByNameIndex(Variables, NameForUpdate))].SetData(hgk);
-
-                            }
+                for (int i = 1; i < JustLine.length(); i++) {
+                    if ((("" + JustLine.charAt(i)).equals("("))) {
+                        for (int j = i+1; j < JustLine.length() && (JustLine.charAt(j)!=')'); j++) {
+                            Frchxilebshi = Frchxilebshi + JustLine.charAt(j);
 
                         }
                     }
+                }
+                if (JustLine.contains("==")) {
+                    String[] parts = Frchxilebshi.split("==");
+
+//                    System.out.println("SHedis == shi");
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+
+                        OperationIf = "==";
+                    }
+                    AnswerIF=(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+//                    System.out.println(AnswerIF);
+
+                }
+
+                if (JustLine.contains("<=")) {
+
+                    String[] parts = Frchxilebshi.split("<=");
+
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+
+                        OperationIf = "<=";
+                    }
+                    AnswerIF=(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+                }
+                else if (JustLine.contains(">=")) {
+
+                    String[] parts = Frchxilebshi.split(">=");
+
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+
+
+                        OperationIf = ">=";
+                    }
+                    AnswerIF=(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+                }
+                else if (JustLine.contains("!=")) {
+
+                    String[] parts = Frchxilebshi.split("!=");
+
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+
+
+                        OperationIf = "!=";
+                    }
+                    AnswerIF=(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+                }
+                else if (JustLine.contains(">")) {
+
+                    String[] parts = Frchxilebshi.split(">");
+
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+                        OperationIf = ">";
+
+
+                    }
+                    AnswerIF=(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+                }
+                else if (JustLine.contains("<")) {
+
+                    String[] parts = Frchxilebshi.split("<");
+
+                    if (parts.length == 2) {
+                        ValueIf1 = parts[0].trim();
+                        ValueIf2 = parts[1].trim();
+
+
+                        OperationIf = "<";
+                    }
+                    AnswerIF =(ForConditions.Compare(Variables,ValueIf1, OperationIf, ValueIf2));
+                }
+
+
+            }
+            if (IfExists>0 && AnswerIF && JustLine.equals("break")) {
+
+                IfBreak=true;
+            }
+            if (AnswerIF && IfExists>0 && IfBreak)  break;
+            if (JustLine.charAt(0)=='}'&& IfExists>0) IfExists--;
+
+            if (ku < length -1) ku++;
+            else ku = 0;
+
+//            System.out.println("if forshi");
+//            System.out.println(IfExists+"-IfExists  "+AnswerIF+"- AnswerIF");
+            if ((IfExists>0 && !AnswerIF) )  continue;
+
+
+            for (int i = 1; i < JustLine.length(); i++) {
+                String NameForUpdate = "";
+                if (JustLine.charAt(i - 1) == '+' && JustLine.charAt(i) == '+') {
+                    for (int j = 0; j < i - 1; j++) {
+                        NameForUpdate = NameForUpdate + JustLine.charAt(j);
+
+
+                    }
+                    if (CheckIfExists(Variables, NameForUpdate)) {
+                        int hgk = Integer.parseInt(SearchByName(Variables, NameForUpdate));
+                        hgk++;
+                        Variables[Integer.parseInt(SearchByNameIndex(Variables, NameForUpdate))].SetData(hgk);
+
+                    }
+
+                }
+            }
 
 
 
 
 
-                    if (JustLine.length() >= 3) {
 
-                        if (!("" + JustLine.charAt(0) + JustLine.charAt(1) + JustLine.charAt(2)).equals("var")) {
-                            for (int i = 1; i < JustLine.length(); i++) {
-                                String NameForUpdate = "";
+            if (JustLine.length() >= 3) {
 
-                                if (("" + JustLine.charAt(i)).equals("=") && !("" + JustLine.charAt(i - 1)).equals(":")) {
-                                    int operationIndex = -1;
-                                    for (int h = i + 1; h < JustLine.length(); h++) {
-                                        if (("" + JustLine.charAt(h)).equals("+") || ("" + JustLine.charAt(h)).equals("-") || ("" + JustLine.charAt(h)).equals("/") || ("" + JustLine.charAt(h)).equals("*") || ("" + JustLine.charAt(h)).equals("%")) {
-                                            operationIndex = h;
-                                            break;
-                                        }
+
+                if (!("" + JustLine.charAt(0) + JustLine.charAt(1) + JustLine.charAt(2)).equals("var")) {
+                    for (int i = 1; i < JustLine.length(); i++) {
+                        String NameForUpdate = "";
+
+                        if (("" + JustLine.charAt(i)).equals("=") && !("" + JustLine.charAt(i - 1)).equals(":")) {
+                            int operationIndex = -1;
+                            for (int h = i + 1; h < JustLine.length(); h++) {
+                                if (("" + JustLine.charAt(h)).equals("+") || ("" + JustLine.charAt(h)).equals("-") || ("" + JustLine.charAt(h)).equals("/") || ("" + JustLine.charAt(h)).equals("*") || ("" + JustLine.charAt(h)).equals("%")) {
+                                    operationIndex = h;
+                                    break;
+                                }
+                            }
+                            if (operationIndex != -1) {
+                                Operation = "" + JustLine.charAt(operationIndex);
+                                for (int j = 0; j < i; j++) {
+                                    NameForUpdate += JustLine.charAt(j);
+                                }
+
+                                if (CheckIfExists(Variables, NameForUpdate)) {
+                                    for (int k = i + 1; k < operationIndex; k++) {
+                                        Value1 += JustLine.charAt(k);
+                                    }
+                                    for (int k = operationIndex + 1; k < JustLine.length(); k++) {
+                                        Value2 += JustLine.charAt(k);
                                     }
 
-                                    if (operationIndex != -1) {
-                                        Operation = "" + JustLine.charAt(operationIndex);
-                                        for (int j = 0; j < i; j++) {
-                                            NameForUpdate += JustLine.charAt(j);
-                                        }
+                                    int result = Integer.parseInt(CalculatorSimple.Do(Variables, Value1.trim(), Operation, Value2.trim()));
+                                    Variables[Integer.parseInt(SearchByNameIndex(Variables, NameForUpdate))].SetData(result);
 
-                                        if (CheckIfExists(Variables, NameForUpdate)) {
-                                            for (int k = i + 1; k < operationIndex; k++) {
-                                                Value1 += JustLine.charAt(k);
-                                            }
-                                            for (int k = operationIndex + 1; k < JustLine.length(); k++) {
-                                                Value2 += JustLine.charAt(k);
-                                            }
-
-                                            int result = Integer.parseInt(CalculatorSimple.Do(Variables, Value1.trim(), Operation, Value2.trim()));
-                                            Variables[Integer.parseInt(SearchByNameIndex(Variables, NameForUpdate))].SetData(result);
-
-                                        } else {
-                                            System.out.println("NOT CORRECT INPUT");
-                                        }
-                                    }
+                                } else {
+                                    System.out.println("NOT CORRECT INPUT");
                                 }
                             }
                         }
                     }
-                    if (ku < length - 1) ku++;
-                    else ku = 0;
-
-
-
                 }
 
             }
 
+
+
+
+
+
+
+
+            ///  system.in is kodiiii
+            boolean writeIn = false;
+            String JustLine1 = JustLine;
+            // vamowmebt tu sout-is inputi iwyeba sworad
+            if (JustLine1.startsWith("fmt.Print")) {
+                Shemotanili = ""; // Reset Shemotanili for each fmt.Print line
+                for (int i = 8; i < JustLine1.length(); i++) {
+                    char c = JustLine1.charAt(i);
+                    if (c == '(') {
+                        writeIn = true;
+                    } else if (c == ')') {
+                        writeIn = false;
+                        break;
+                    } else if (writeIn) {
+                        Shemotanili += c;
+                    }
+                }
+                Valuablebisqueue.add(SearchByName(Variables,Shemotanili)); // trimavs shemotanils da queue-shi amatebs
+            }
+
+
+
+
+
+
+
         }
 
-        System.out.println("Check If Enters");
+
+
+
+
     }
 
 
@@ -158,17 +309,20 @@ class main {
         String SimpleLine = "";
         int ForExists = 0;
         int ForExists1 = 0;
+        int IfIsOutOfFor=0;
         int index = 0;  // es gamoiyeneba Variable klasis indeqsistvis
         int Count = 1;
         String Shemotanili = "";
-        Queue<String> Valuablebisqueue = new LinkedList<>();
+
         int xyz = 0;
         String[] Lines = new String[1002];
         int IndexL = 0;
         boolean ForBreak = false;
+        int IfExists=0;
+        boolean AnswerIF = false;
 
-        boolean Break = false;
         while (true) {
+
 
 
             int NumberOfBr = 1;
@@ -188,9 +342,177 @@ class main {
             // while
 
 
-            if (!JustLine.equals("") && !SimpleLine.equals("")) {
 
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+            if (!JustLine.equals("") && !SimpleLine.equals("")) {
+                String ChasaweriIfshi = "";
+                String Frchxilebshi = "";
+//                System.out.println(IfExists + "----" + JustLine);
+                // fori ,lainebs inaxav Linesshi  fori bolo brchxilianad
+                if (JustLine.startsWith("fortrue")) {
+                    ForExists++;
+                    ForExists1++;
+                }
+                if (JustLine.equals("break")) {
+
+                    ForBreak = true;
+                }
+
+                if (!(JustLine.equals("fortrue{")) && ForExists > 0) {
+                    Lines[IndexL] = JustLine;
+//                    System.out.println(IndexL + " ->  " + Lines[IndexL]);
+                    IndexL++;
+
+                }
+                if (JustLine.startsWith("if")) {
+                    IfExists++;
+//                    System.out.println(JustLine + " JustLine");
+                    if (ForExists == 0 && IfExists > 0) IfIsOutOfFor ++;
+//                    System.out.println(IfIsOutOfFor + " IfIsOutOfFor");
+                }
+                if (ForExists==0 && IfIsOutOfFor>0) {
+                    if (JustLine.startsWith("if")) {
+                        String Value1 = "";
+                        String Operation = "";
+                        String Value2 = "";
+
+                        for (int i = 1; i < JustLine.length(); i++) {
+                            if ((("" + JustLine.charAt(i)).equals("("))) {
+                                for (int j = i + 1; j < JustLine.length() && (JustLine.charAt(j) != ')'); j++) {
+                                    Frchxilebshi = Frchxilebshi + JustLine.charAt(j);
+
+                                }
+                            }
+                        }
+                        if (JustLine.contains("==")) {
+                            String[] parts = Frchxilebshi.split("==");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+
+//                                System.out.println(Value1 + " " + Value2);
+                                Operation = "==";
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        }
+
+                        if (JustLine.contains("<=")) {
+
+                            String[] parts = Frchxilebshi.split("<=");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+//                                System.out.println(Value1 + " " + Value2);
+                                Operation = "<=";
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        } else if (JustLine.contains(">=")) {
+
+                            String[] parts = Frchxilebshi.split(">=");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+
+//                                System.out.println(Value1 + " " + Value2);
+                                Operation = ">=";
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        } else if (JustLine.contains("!=")) {
+
+                            String[] parts = Frchxilebshi.split("!=");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+
+//                                System.out.println(Value1 + " " + Value2);
+                                Operation = "!=";
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        } else if (JustLine.contains(">")) {
+
+                            String[] parts = Frchxilebshi.split(">");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+                                Operation = ">";
+//                                System.out.println(Value1 + " " + Value2);
+
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        } else if (JustLine.contains("<")) {
+
+                            String[] parts = Frchxilebshi.split("<");
+
+                            if (parts.length == 2) {
+                                Value1 = parts[0].trim();
+                                Value2 = parts[1].trim();
+
+//                                System.out.println(Value1 + " " + Value2);
+                                Operation = "<";
+                            }
+                            AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
+                        }
+
+//                        System.out.println(Frchxilebshi);
+                    }
+                    if (JustLine.charAt(0) == '}' && IfExists > 0) IfExists--;
+
+                    if ((IfExists > 0 && !AnswerIF)) continue;
+
+//                    System.out.println(IfExists + "////" + AnswerIF);
+//                    System.out.println("IF-" + IfExists);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 // amowmebs var aris tuara stringshi,shemoaqvs var it sheqmnili cvladebi  mag : var name int =1
                 if (SimpleLine.length() >= 3) {
                     if (("" + Line.charAt(0) + Line.charAt(1) + Line.charAt(2)).equals("var")) {
@@ -243,11 +565,11 @@ class main {
                         }
                     }
                 }
-                if (ForExists != 0) {
+                if (ForExists == 0) {
                     String Value1 = "";
                     String Value2 = "";
                     String Operation;
-                    // gatolebis da informaciis shecvlis
+                    // gagas gatolebis da informaciis shecvlis
                     // kalkulaturi
                     // --------------------------------------------------------------------------------------------------------------------------------------------------------------========================================================
                     if (JustLine.length() > 2) {
@@ -270,12 +592,17 @@ class main {
                             }
                         }
 
+//                     gazarde
 
 
                     }
 
 //=====================================================================================================================================================================================================================
 
+
+                    /*
+
+                     */
 
 
                     if (SimpleLine.length() >= 3) {
@@ -320,25 +647,7 @@ class main {
                     }
                 }
 //==========================================================================================================================================================================================================
-                // fori ,lainebs inaxav Linesshi  fori bolo brchxilianad
-                if (JustLine.startsWith("fortrue")) {
-                    ForExists++;
-                    ForExists1++;
-                }
-                if (JustLine.equals("break")) {
 
-                    ForBreak = true;
-                }
-
-                System.out.println(ForExists);
-                if (!(JustLine.equals("fortrue{")) && ForExists > 0) {
-                    Lines[IndexL] = JustLine;
-                    System.out.println(IndexL + " ->  " + Lines[IndexL]);
-                    IndexL++;
-
-                }
-                if (Count == 1 && ForExists > 0) ForExists--;
-                if (Count == 1 && ForExists == 0) continue;
 //                indexl raodenoba
 //                for true shi
 //                lines [indexl] == break
@@ -347,6 +656,7 @@ class main {
 //==========================================================================================================================================================================================================
                 boolean writeIn = false;
                 String JustLine1 = JustLine;
+
                 // vamowmebt tu sout-is inputi iwyeba sworad
                 if (JustLine1.startsWith("fmt.Print")) {
                     Shemotanili = ""; // Reset Shemotanili for each fmt.Print line
@@ -361,7 +671,9 @@ class main {
                             Shemotanili += c;
                         }
                     }
-                    Valuablebisqueue.add(Shemotanili.trim()); // trimavs shemotanils da queue-shi amatebs
+                    if (ForExists==0){
+                        Valuablebisqueue.add(SearchByName(Variables,Shemotanili.trim())); // trimavs shemotanils da queue-shi amatebs
+                    }
                 }
 
 
@@ -373,9 +685,12 @@ class main {
 
             // ranavs im shemtxvevashi tu bolo } daxuruli
 
-
+            if (Count == 1 && ForExists > 0) ForExists--;
+//            if (Count == 1 && ForExists == 0)  continue;
+//            System.out.println(ForExists);
             if (ForExists1 > 0) {
-                if (Count == 0 && !Break) {
+//                if (Count == 0 && Forbreak)  esec scade rorame
+                if (Count == 0 ) {
                     String[] ForMethodArray = new String[IndexL];
                     for (int i = 0; i < Lines.length && Lines[i] != null; i++) {
                         ForMethodArray[i] = Lines[i];
@@ -389,20 +704,25 @@ class main {
 
 
                     while (!Valuablebisqueue.isEmpty()) {
-                        String cvladisSaxeli = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
-                        System.out.println(SearchByName(Variables, cvladisSaxeli).replaceAll("\"", ""));
+                        String cvladisMnishvneloba = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
+                        System.out.println( cvladisMnishvneloba.replaceAll("\"", ""));
+//                        System.out.println("forit  ");
+//                        System.out.println(Count+"----------"+ForExists +" Break-"+ForBreak+"  forexists1-"+ForExists1);
 
                         xyz++;
-// xyz ++
+// xyz ++ zedmetia
                     }
                     break;
                 }
             } else if (Count == 0) {
-                while (!Valuablebisqueue.isEmpty()) {
-                    String cvladisSaxeli = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
-                    System.out.println(SearchByName(Variables, cvladisSaxeli).replaceAll("\"", ""));
 
+
+                while (!Valuablebisqueue.isEmpty()) {
+                    String cvladisMnishvneloba = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
+                    System.out.println(cvladisMnishvneloba.replaceAll("\"", ""));
+//                    System.out.println("foris gareshe ");
                     xyz++;
+
 
                 }
                 break;
@@ -412,3 +732,34 @@ class main {
 
     }
 }
+//x:=10
+//x++
+//fmt.Print(x)
+//for true{
+//1
+//x++
+//0 ->  x++
+//1
+//fmt.Print(x)
+//1 ->  fmt.Print(x)
+//1
+//break
+//2 ->  break
+//1
+//}
+//3 ->  }
+//x++
+//fmt.Print(x)
+//}
+//0
+//x++
+//fmt.Print(x)
+//kitxulob?
+//11
+//forit
+//12
+//forit
+//13
+//forit
+//
+//Process finished with exit code 0
