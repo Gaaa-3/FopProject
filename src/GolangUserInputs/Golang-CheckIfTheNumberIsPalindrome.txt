@@ -1,31 +1,32 @@
+If the program print nothing after launching, it means that the number is Not Palindrome, Otherwise it is printing Palindrome
+================================================================================================================================
 package main
 
 import "fmt"
 
 func main() {
-	num := 12321
-	num1 := num
-	res := 0
-	res1 := 0
-	res2 := 0
-	for true {
 
-		res1 = res * 10
-		res2 = num1 % 10
-		res = res1 + res2
 
-		num1 = num1 / 10
-		if (num1 == 0) {
-			break
-		}
-	}
+	n := 12345
+    	x := 0
+    	b:= 0
+    	x = n + 0
+    	a := 0
+    	c:= 0
 
-	fmt.Print(res)
+    	for true {
 
-	if (res == num) {
-		fmt.Print(" Is Palindrome")
-	}
-	if ( res != num) {
-		fmt.Print(" Not Palindrome")
-	}
-}
+    		b = a * 10
+    		c = n % 10
+    		a = b + c
+
+    		n = n / 10
+
+    		if ( a==x ) {
+    			fmt.Print("palindrome")
+    		}
+    		if ( n == 0) {
+    			break
+    		}
+    	}
+    }
