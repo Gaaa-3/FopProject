@@ -732,34 +732,3 @@ class main {
 
     }
 }
-//x:=10
-//x++
-//fmt.Print(x)
-//for true{
-//1
-//x++
-//0 ->  x++
-//1
-//fmt.Print(x)
-//1 ->  fmt.Print(x)
-//1
-//break
-//2 ->  break
-//1
-//}
-//3 ->  }
-//x++
-//fmt.Print(x)
-//}
-//0
-//x++
-//fmt.Print(x)
-//kitxulob?
-//11
-//forit
-//12
-//forit
-//13
-//forit
-//
-//Process finished with exit code 0
