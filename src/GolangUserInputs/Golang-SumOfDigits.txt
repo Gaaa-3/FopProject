@@ -4,20 +4,21 @@ import "fmt"
 
 func main() {
 
-	number := 2468
-	sum := 0
-	temp := 0
-	temp = number
-	sum1 := 0
+	number := 1234
+    	sum := 0
+    	temp := 0
+    	temp = number + 0
+    	sum1 := 0
 
-	for true {
-		if ( temp == 0 ) {
-			break
-		}
-		sum1 = temp % 10
-		sum = sum + sum1
-		temp = temp / 10
-	}
+    	for true {
+    		if ( temp == 0 ) {
+    			fmt.Print(sum)
+    			break
+    		}
+    		sum1 = temp % 10
+    		sum = sum + sum1
+    		temp = temp / 10
+    	}
 
-	fmt.Print(sum)
-}
+
+    }
