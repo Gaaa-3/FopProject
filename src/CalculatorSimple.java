@@ -1,5 +1,3 @@
-
-
 public class CalculatorSimple {
 
     // operations - * / % + - == && ||4
@@ -28,7 +26,7 @@ public class CalculatorSimple {
                     answer = answerInt + "";
                     return answer;
                 }else{
-                    answerInt = IntValue1 + Integer.parseInt(Value2);
+                    answerInt = IntValue1 + IntValue2;
                     answer = answerInt + "";
                     return answer;
                 }
@@ -39,7 +37,7 @@ public class CalculatorSimple {
                 answer = answerInt + "";
                 return answer;
             }
-            case "*" -> {
+            case "" -> {
                 answerInt = IntValue1 * IntValue2;
                 answer = answerInt + "";
                 return answer;
@@ -67,4 +65,3 @@ public class CalculatorSimple {
 
 
 }
-
