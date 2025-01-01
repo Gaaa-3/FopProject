@@ -1,12 +1,9 @@
-import javax.swing.*;
-import java.awt.font.GlyphJustificationInfo;
+
 import java.util.*;
 
 class main {
+
     public static Queue<String> Valuablebisqueue = new LinkedList<>();
-
-
-
 
     public static boolean CheckIfExists(Variables[] a, String name) {
         for (int i = 0; i < a.length && a[i] != null; i++) {
@@ -29,16 +26,6 @@ class main {
         return name;
     }
 
-//    public static void GetAllValues(Variables[] a) {
-//        for (int i = 0; i < a.length && a[i] != null; ++i) {
-//
-//            System.out.print(i + 1 + "  " + a[i].GetName() + " -> ");
-//
-//            System.out.println(a[i].GetData());
-//        }
-//
-//    }
-
     public static boolean Check(Variables[] a, String name) {
         int o = 0;
 
@@ -56,8 +43,6 @@ class main {
         }
     }
 
-
-    // dedanaqachi foris methodi
     public static void ForMethod(String[] LinesArray, int length, Variables[] Variables, int index) {
         String Shemotanili="";
         int xyz=0;
@@ -287,13 +272,7 @@ class main {
 
 
 
-
-
-
-
         }
-
-
 
 
 
@@ -340,23 +319,9 @@ class main {
                 if (("" + JustLine.charAt(i)).equals("}")) Count--;
             }
             // while
-
-
-
-
-
-
-
-
-
-
-
-
-
             if (!JustLine.equals("") && !SimpleLine.equals("")) {
                 String ChasaweriIfshi = "";
                 String Frchxilebshi = "";
-//                System.out.println(IfExists + "----" + JustLine);
                 // fori ,lainebs inaxav Linesshi  fori bolo brchxilianad
                 if (JustLine.startsWith("fortrue")) {
                     ForExists++;
@@ -369,15 +334,12 @@ class main {
 
                 if (!(JustLine.equals("fortrue{")) && ForExists > 0) {
                     Lines[IndexL] = JustLine;
-//                    System.out.println(IndexL + " ->  " + Lines[IndexL]);
                     IndexL++;
 
                 }
                 if (JustLine.startsWith("if")) {
                     IfExists++;
-//                    System.out.println(JustLine + " JustLine");
                     if (ForExists == 0 && IfExists > 0) IfIsOutOfFor ++;
-//                    System.out.println(IfIsOutOfFor + " IfIsOutOfFor");
                 }
                 if (ForExists==0 && IfIsOutOfFor>0) {
                     if (JustLine.startsWith("if")) {
@@ -400,7 +362,6 @@ class main {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
 
-//                                System.out.println(Value1 + " " + Value2);
                                 Operation = "==";
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
@@ -413,7 +374,6 @@ class main {
                             if (parts.length == 2) {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
-//                                System.out.println(Value1 + " " + Value2);
                                 Operation = "<=";
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
@@ -425,7 +385,6 @@ class main {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
 
-//                                System.out.println(Value1 + " " + Value2);
                                 Operation = ">=";
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
@@ -437,7 +396,6 @@ class main {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
 
-//                                System.out.println(Value1 + " " + Value2);
                                 Operation = "!=";
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
@@ -449,7 +407,6 @@ class main {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
                                 Operation = ">";
-//                                System.out.println(Value1 + " " + Value2);
 
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
@@ -461,59 +418,17 @@ class main {
                                 Value1 = parts[0].trim();
                                 Value2 = parts[1].trim();
 
-//                                System.out.println(Value1 + " " + Value2);
                                 Operation = "<";
                             }
                             AnswerIF = (ForConditions.Compare(Variables, Value1, Operation, Value2));
                         }
 
-//                        System.out.println(Frchxilebshi);
                     }
                     if (JustLine.charAt(0) == '}' && IfExists > 0) IfExists--;
 
                     if ((IfExists > 0 && !AnswerIF)) continue;
-
-//                    System.out.println(IfExists + "////" + AnswerIF);
-//                    System.out.println("IF-" + IfExists);
                 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                // amowmebs var aris tuara stringshi,shemoaqvs var it sheqmnili cvladebi  mag : var name int =1
                 if (SimpleLine.length() >= 3) {
                     if (("" + Line.charAt(0) + Line.charAt(1) + Line.charAt(2)).equals("var")) {
                         int space = 0;
@@ -569,12 +484,12 @@ class main {
                     String Value1 = "";
                     String Value2 = "";
                     String Operation;
-                    // gagas gatolebis da informaciis shecvlis
+
                     // kalkulaturi
                     // --------------------------------------------------------------------------------------------------------------------------------------------------------------========================================================
                     if (JustLine.length() > 2) {
                         String NameForUpdate = "";
-//                    xdggf++
+
                         for (int i = 1; i < JustLine.length(); i++) {
                             if (JustLine.charAt(i - 1) == '+' && JustLine.charAt(i) == '+') {
                                 for (int j = 0; j < i - 1; j++) {
@@ -596,14 +511,6 @@ class main {
 
 
                     }
-
-//=====================================================================================================================================================================================================================
-
-
-                    /*
-
-                     */
-
 
                     if (SimpleLine.length() >= 3) {
 
@@ -646,14 +553,9 @@ class main {
                         }
                     }
                 }
-//==========================================================================================================================================================================================================
-
 //                indexl raodenoba
 //                for true shi
 //                lines [indexl] == break
-
-
-//==========================================================================================================================================================================================================
                 boolean writeIn = false;
                 String JustLine1 = JustLine;
 
@@ -686,18 +588,13 @@ class main {
             // ranavs im shemtxvevashi tu bolo } daxuruli
 
             if (Count == 1 && ForExists > 0) ForExists--;
-//            if (Count == 1 && ForExists == 0)  continue;
-//            System.out.println(ForExists);
             if (ForExists1 > 0) {
-//                if (Count == 0 && Forbreak)  esec scade rorame
                 if (Count == 0 ) {
                     String[] ForMethodArray = new String[IndexL];
                     for (int i = 0; i < Lines.length && Lines[i] != null; i++) {
                         ForMethodArray[i] = Lines[i];
                     }
-//                for (int i = 0; i <IndexL; i++) {
-//                    System.out.println(i + "-------------->>>>>>>>>>" + ForMethodArray[i]);
-//                }
+
 
 
                     ForMethod(ForMethodArray, IndexL, Variables, index);
@@ -706,11 +603,8 @@ class main {
                     while (!Valuablebisqueue.isEmpty()) {
                         String cvladisMnishvneloba = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
                         System.out.println( cvladisMnishvneloba.replaceAll("\"", ""));
-//                        System.out.println("forit  ");
-//                        System.out.println(Count+"----------"+ForExists +" Break-"+ForBreak+"  forexists1-"+ForExists1);
 
                         xyz++;
-// xyz ++ zedmetia
                     }
                     break;
                 }
@@ -720,7 +614,6 @@ class main {
                 while (!Valuablebisqueue.isEmpty()) {
                     String cvladisMnishvneloba = Valuablebisqueue.poll();//queues pirvel elements gvichvenebs da shlis
                     System.out.println(cvladisMnishvneloba.replaceAll("\"", ""));
-//                    System.out.println("foris gareshe ");
                     xyz++;
 
 
