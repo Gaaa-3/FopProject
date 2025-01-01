@@ -37,7 +37,7 @@ public class CalculatorSimple {
                 answer = answerInt + "";
                 return answer;
             }
-            case "" -> {
+            case "*" -> {
                 answerInt = IntValue1 * IntValue2;
                 answer = answerInt + "";
                 return answer;
