@@ -3,17 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	n1 := 24
-	n2 := 12
+	    n1 := 24
+    	n2 := 12
+    	temp := 0
 
-	for true {
-		if n2 == 0 {
-			break
-		}
-		temp := n1 % n2
-		n1 = n2
-		n2 = temp
-	}
+    	for true {
+    		if ( n2 == 0 ) {
+    			fmt.Print(n1)
+    			break
+    		}
+    		if ( n1 == 0 ) {
+    		    fmt.Print(n2)
+    		    break
+    		}
+    		temp = n1 % n2
+    		n1 = n2 + 0
+    		n2 = temp + 0
+    	}
+    }
 
-	fmt.Print(n1)
-}
