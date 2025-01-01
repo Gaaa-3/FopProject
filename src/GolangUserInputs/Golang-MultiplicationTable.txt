@@ -4,15 +4,16 @@ import "fmt"
 
 func main() {
 
-	number := 5
+	res:=0
+        number := 5
+        i := 1
+        for true {
+            if (i == 11) {
+                break
+            }
+            res = number * i
+            fmt.Println(res)
+            i++
+        }
 
-
-	i := 1
-	for true {
-		if i == 11 {
-			break
-		}
-		fmt.Println(number * i)
-		i++
-	}
-}
+    }

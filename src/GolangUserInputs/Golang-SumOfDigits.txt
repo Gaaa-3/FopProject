@@ -6,11 +6,12 @@ func main() {
 
 	number := 2468
 	sum := 0
-	temp := number
+	temp := 0
+	temp = number
 	sum1 := 0
 
 	for true {
-		if temp == 0 {
+		if ( temp == 0 ) {
 			break
 		}
 		sum1 = temp % 10
