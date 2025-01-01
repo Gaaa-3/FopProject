@@ -45,7 +45,9 @@ Here you have access to every code that works perfectly for the given algorithms
 ![carbon (1)](https://github.com/user-attachments/assets/821e3f20-9e16-4f9b-9572-28d9feb809b6)
 
 
-**You have to copy the part of code after:![carbon (3)](https://github.com/user-attachments/assets/4a1a6f01-f1d0-47c4-888b-7fc239cc7790)**
+**You have to copy the part of code after:**
+
+![carbon (3)](https://github.com/user-attachments/assets/4a1a6f01-f1d0-47c4-888b-7fc239cc7790)
 
 You can change the main variable if want to;
 For example, here you can change the meaning of n;
