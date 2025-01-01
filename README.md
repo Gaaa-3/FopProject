@@ -40,12 +40,22 @@ Clone the Repository to get access to all files, packages and classes;
 --------------------------------------------------------------------------------
   Navigate to >FopProject>src>GolangUserInputs;
 
-Here you have access to every code that works perfectly for the given algorithm.
-You can change the main variable if want to;
-For example, here you can change the meaning of n;
+Here you have access to every code that works perfectly for the given algorithms.
 
 ![carbon (1)](https://github.com/user-attachments/assets/821e3f20-9e16-4f9b-9572-28d9feb809b6)
 
+
+**The start of Golang code is already ready:**
+
+![carbon (3)](https://github.com/user-attachments/assets/4a1a6f01-f1d0-47c4-888b-7fc239cc7790)
+
+**So you have to copy only the following part:**
+
+![image](https://github.com/user-attachments/assets/d91a7875-dfa5-428b-9387-0a7c757114c2)
+
+
+You can change the main variable if want to;
+For example, here you can change the meaning of n;
 2)Open the main class and launch it
 --------------------------------------------------------------------------------
  Navigate to >FopProject>src>main
