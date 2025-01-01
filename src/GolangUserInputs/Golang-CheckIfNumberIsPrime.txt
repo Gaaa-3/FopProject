@@ -3,30 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	x := 0
-	count := 0
-	i := 1
+	n := 7
+    	i := 2
+    	k := 0
+    	p := 0
+    	w := 0
+    	for true {
+    		k = i * i
+    		if ( k > n ) {
+    			fmt.Print("prime")
+    			break
+    		}
+    		p = n / i
+    		w = p * i
 
-	for true {
-		if x == 1 {
-			fmt.Print("Neither prime or composite")
-			break
-		}
-		if x == 0 {
-			fmt.Print("Neither prime or composite")
-			break
-		}
-		if x%i == 0 {
-			count++
-		}
-		if i == 9 && count == 2 {
-			fmt.Print("prime ")
-			break
-		}
-		if i == 9 {
-			fmt.Print("not prime ")
-			break
-		}
-		i++
-	}
-}
+    		if ( w  == n ) {
+    			fmt.Print("not prime")
+    			break
+    		}
+    		i = i + 1
+    	}
+    }
