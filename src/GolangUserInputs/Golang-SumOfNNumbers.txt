@@ -3,15 +3,16 @@ package main
 import "fmt"
 
 func main() {
+    n := 10
+ 	sum := 0
+ 	sum1 := 0
+ 	sum2 := 0
 
-    n := 4
-	sum := 0
-	sum1 := 0
-	sum2 := 0
+     sum = n + 1
+     sum1 = n * sum
+     sum2 = sum1 / 2
 
-    sum = n + 1
-    sum1 = n * sum
-    sum2 = sum1 / 2
-
-    fmt.Print(sum2)
+     fmt.Print(sum2)
+     }
     }
+}
